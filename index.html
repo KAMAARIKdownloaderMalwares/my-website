@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Онлайн пользователи</title>
+  <script src="/socket.io/socket.io.js"></script>
+  <style>
+    body { font-family: sans-serif; text-align: center; padding: 50px; }
+    h1 { font-size: 2rem; }
+  </style>
+</head>
+<body>
+  <h1>Сейчас онлайн: <span id="count">0</span> человек</h1>
+
+  <script>
+    const socket = io();
+
+    socket.on("update", (count) => {
+      document.getElementById("count").textContent = count;
+    });
+  </script>
+</body>
+</html>
